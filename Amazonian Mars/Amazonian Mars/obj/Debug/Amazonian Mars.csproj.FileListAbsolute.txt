@@ -1,0 +1,7 @@
+C:\Users\rslui\OneDrive\Desktop\webogames-amazonian-mars-for-sure-e28bcda0ed7b\Amazonian Mars\Amazonian Mars\bin\Debug\Amazonian Mars.exe.config
+C:\Users\rslui\OneDrive\Desktop\webogames-amazonian-mars-for-sure-e28bcda0ed7b\Amazonian Mars\Amazonian Mars\bin\Debug\Amazonian Mars.exe
+C:\Users\rslui\OneDrive\Desktop\webogames-amazonian-mars-for-sure-e28bcda0ed7b\Amazonian Mars\Amazonian Mars\bin\Debug\Amazonian Mars.pdb
+C:\Users\rslui\OneDrive\Desktop\webogames-amazonian-mars-for-sure-e28bcda0ed7b\Amazonian Mars\Amazonian Mars\obj\Debug\Amazonian Mars.csproj.CoreCompileInputs.cache
+C:\Users\rslui\OneDrive\Desktop\webogames-amazonian-mars-for-sure-e28bcda0ed7b\Amazonian Mars\Amazonian Mars\obj\Debug\Amazonian Mars.exe
+C:\Users\rslui\OneDrive\Desktop\webogames-amazonian-mars-for-sure-e28bcda0ed7b\Amazonian Mars\Amazonian Mars\obj\Debug\Amazonian Mars.pdb
+C:\Users\rslui\OneDrive\Desktop\webogames-amazonian-mars-for-sure-e28bcda0ed7b\Amazonian Mars\Amazonian Mars\obj\Debug\Amazonian Mars.csproj.AssemblyReference.cache
