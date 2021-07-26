@@ -144,7 +144,9 @@ namespace Amazonian_Mars
             }
             public override Program.BattleAction ChoseBattleAction(string battletype)
             {
+                //The PLAYER version of this function should call a screen function.
                 string choice = Console.ReadLine();
+                
                 int moveIndex = int.Parse(choice);
                 moveIndex--;
                 Program.BattleAction chosenmove = new Program.BattleAction();

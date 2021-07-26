@@ -247,11 +247,11 @@ namespace Amazonian_Mars
                 string HpPlusMinus = "";
                 string MpPlusMinus = "";
                 if (battleAction.M_MoveValue < 0)
-                    HpPlusMinus = "-";
+                    HpPlusMinus = "";
                 else
                     HpPlusMinus = "+";
                 if (battleAction.M_ManaValue < 0)
-                    MpPlusMinus = "-";
+                    MpPlusMinus = "";
                 else
                     MpPlusMinus = "+";
 
@@ -266,7 +266,7 @@ namespace Amazonian_Mars
                 Console.WriteLine("");
                 Console.WriteLine("");
 
-                Console.WriteLine(attackerName + " " + MpPlusMinus + " Mana!");
+                Console.WriteLine(attackerName + " " + MpPlusMinus + battleAction.M_ManaValue + " Mana!");
                 Console.WriteLine("");
                 Console.ReadLine();
 
