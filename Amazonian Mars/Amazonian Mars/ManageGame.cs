@@ -262,7 +262,7 @@ namespace Amazonian_Mars
 
                 Console.ReadLine();
 
-                Console.WriteLine(targetName + " " + HpPlusMinus + " Health!");
+                Console.WriteLine(targetName + " " + HpPlusMinus + battleAction.M_MoveValue + " Health!");
                 Console.WriteLine("");
                 Console.WriteLine("");
 

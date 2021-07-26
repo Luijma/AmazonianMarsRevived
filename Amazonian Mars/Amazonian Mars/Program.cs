@@ -54,8 +54,11 @@ namespace Amazonian_Mars
             Living.Enemy enemy = new Living.Enemy(400, 200, Status.NoEffect, DefendState.Physical, "Judas Tree");
 
             player.SetName();
+            ManageGame.BattleSystem firstBattle = new ManageGame.BattleSystem(player, enemy);
 
-            ManageGame.Screen.DisplayAllStats(player, enemy);
+            firstBattle.StartBattle();
+
+            /* ManageGame.Screen.DisplayAllStats(player, enemy);
             ManageGame.Screen.DisplayAttacks(player.M_Support);
             Console.ReadLine();
             Console.Clear();
@@ -66,7 +69,7 @@ namespace Amazonian_Mars
 
             ManageGame.Screen.NarrateDefense(player, enemy, true, DefendState.Magical);
             Console.ReadLine();
-
+            */
         }
     }
 }

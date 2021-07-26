@@ -146,6 +146,7 @@ namespace Amazonian_Mars
             {
                 string choice = Console.ReadLine();
                 int moveIndex = int.Parse(choice);
+                moveIndex--;
                 Program.BattleAction chosenmove = new Program.BattleAction();
                 switch (battletype)
                 {
