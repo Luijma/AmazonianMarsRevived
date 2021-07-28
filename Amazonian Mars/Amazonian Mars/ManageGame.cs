@@ -64,58 +64,25 @@ namespace Amazonian_Mars
                     switch (m_Player.ChoseBattleType())
                     {
                         case "1":
-                            Console.Clear();
-                            Screen.DisplayAllStats(m_Player, m_Enemy);
-
-                            //display Physical options
-                            Screen.DisplayAttacks(m_Player.M_Physical);
-                            //player Choses move
-                            m_PlayerMove = m_Player.ChoseBattleAction("physical");
-                            Console.Clear();
-                            //Clear Screen after option chosen
-
-                            //Display HUD
-                            Screen.DisplayAllStats(m_Player, m_Enemy);
-                            Screen.NarrateActions(m_Player.M_Name, m_Enemy.M_Name, m_PlayerMove);
-                            HandleAttack(m_Player, m_Enemy, m_PlayerMove);
+                            HandlePlayerTurn("physical", m_Player.M_Physical);
 
                             break;
 
                         case "2":
-                            Console.Clear();
-                            Screen.DisplayAllStats(m_Player, m_Enemy);
-                            //display Magical options
-                            Screen.DisplayAttacks(m_Player.M_Magical);
-                            //player choses move
-                            m_PlayerMove = m_Player.ChoseBattleAction("magical");
-                            Console.Clear();
-                            //Clear Screen after option chosen
-
-                            //Display HUD
-                            Screen.DisplayAllStats(m_Player, m_Enemy);
-                            Screen.NarrateActions(m_Player.M_Name, m_Enemy.M_Name, m_PlayerMove);
-                            HandleAttack(m_Player, m_Enemy, m_PlayerMove);
+                            HandlePlayerTurn("magical", m_Player.M_Magical);
 
                             break;
 
                         case "3":
-                            Console.Clear();
-                            Screen.DisplayAllStats(m_Player, m_Enemy);
-                            //display Support options
-                            Screen.DisplayAttacks(m_Player.M_Support);
-                            //player choses move
-                            m_PlayerMove = m_Player.ChoseBattleAction("support");
-                            Console.Clear();
-                            //Clear Screen after option chosen
-
-                            //Display HUD
-                            Screen.DisplayAllStats(m_Player, m_Enemy);
-                            Screen.NarrateActions(m_Player.M_Name, m_Player.M_Name, m_PlayerMove);
-                            HandleAttack(m_Player, m_Player, m_PlayerMove);
+                            HandlePlayerTurn("support", m_Player.M_Support);
                             break;
 
                         default:
-                            break;
+                            Console.Clear();
+                            Console.WriteLine("\n\n\n\t\tChoose a valid option! 1-3");
+                            Console.ReadLine();
+                            Console.Clear();
+                            continue;
                     }
                     // Check Enemy HP, end battle if 0
                     if (m_Enemy.M_HP == 0)
@@ -154,6 +121,25 @@ namespace Amazonian_Mars
                 } while (true);
 
             }
+
+            private void HandlePlayerTurn(string attackType, Program.BattleAction[] actions)
+            {
+                Console.Clear();
+                Screen.DisplayAllStats(m_Player, m_Enemy);
+
+                //display possible actions
+                Screen.DisplayAttacks(actions);
+                //player Choses move
+                m_PlayerMove = m_Player.ChoseBattleAction(attackType);
+                Console.Clear();
+                //Clear Screen after option chosen
+
+                //Display HUD
+                Screen.DisplayAllStats(m_Player, m_Enemy);
+                Screen.NarrateActions(m_Player.M_Name, m_Enemy.M_Name, m_PlayerMove);
+                HandleAttack(m_Player, m_Enemy, m_PlayerMove);
+            }
+
             public void HandleAttack(Living.Character Attacker, Living.Character Target, Program.BattleAction move)
             {
                 Target.ChangeHP(move.M_MoveValue);
@@ -211,7 +197,7 @@ namespace Amazonian_Mars
             //Display the Actual BattleActions alongside it's values
             public static void DisplayAttacks(Program.BattleAction[] battleActions)
             {
-                Console.WriteLine("What move will you do?");
+                Console.WriteLine("Pick your move (1-4)");
                 Console.WriteLine("");
                 
                 //check what DefendState the move is to determine whether or not the move gives mana or takes away mana
@@ -247,11 +233,11 @@ namespace Amazonian_Mars
                 string HpPlusMinus = "";
                 string MpPlusMinus = "";
                 if (battleAction.M_MoveValue < 0)
-                    HpPlusMinus = "";
+                    HpPlusMinus = "-";
                 else
                     HpPlusMinus = "+";
                 if (battleAction.M_ManaValue < 0)
-                    MpPlusMinus = "";
+                    MpPlusMinus = "-";
                 else
                     MpPlusMinus = "+";
 
@@ -262,11 +248,11 @@ namespace Amazonian_Mars
 
                 Console.ReadLine();
 
-                Console.WriteLine(targetName + " " + HpPlusMinus + battleAction.M_MoveValue + " Health!");
+                Console.WriteLine(targetName + " " + HpPlusMinus + Math.Abs(battleAction.M_MoveValue) + " Health!");
                 Console.WriteLine("");
                 Console.WriteLine("");
 
-                Console.WriteLine(attackerName + " " + MpPlusMinus + battleAction.M_ManaValue + " Mana!");
+                Console.WriteLine(attackerName + " " + MpPlusMinus + Math.Abs(battleAction.M_MoveValue) + " Mana!");
                 Console.WriteLine("");
                 Console.ReadLine();
 
