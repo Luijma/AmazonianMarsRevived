@@ -145,23 +145,27 @@ namespace Amazonian_Mars
             public override Program.BattleAction ChoseBattleAction(string battletype)
             {
                 //The PLAYER version of this function should call a screen function.
-                string choice;
-                int moveIndex;
+                //This will be moved eventually
+                int moveIndex = -1;
                 
-                do 
+
+                //This code doesn't work, and doesn't belong here
+                //Will be moved when I'm less sleepy
+                do
                 {
-                    choice = Console.ReadLine();
-                    moveIndex = int.Parse(choice);
-                    moveIndex--;
+
+                    if (int.TryParse(Console.ReadLine(), out moveIndex))
+                    {
+                        moveIndex--;
+                    }
+                    
                     //Will need to eventually Refactor this if as function to handle
                     //Incorrect input.
                     if (moveIndex < 0 || moveIndex > 3)
                     {
-                        Console.Clear();
-                        Console.WriteLine("\n\n\n\t\tChoose a Valid option! (1-4)");
-                        Console.ReadLine();
-                        Console.Clear();
+                        ManageGame.Screen.InputErrorMessage();
                     }
+                    
                 } while (moveIndex < 0 || moveIndex > 3);
 
                 Program.BattleAction chosenmove = new Program.BattleAction();

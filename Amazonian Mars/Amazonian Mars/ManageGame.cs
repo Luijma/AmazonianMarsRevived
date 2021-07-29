@@ -78,10 +78,7 @@ namespace Amazonian_Mars
                             break;
 
                         default:
-                            Console.Clear();
-                            Console.WriteLine("\n\n\n\t\tChoose a valid option! 1-3");
-                            Console.ReadLine();
-                            Console.Clear();
+                            Screen.InputErrorMessage();
                             continue;
                     }
                     // Check Enemy HP, end battle if 0
@@ -121,6 +118,8 @@ namespace Amazonian_Mars
                 } while (true);
 
             }
+
+            
 
             private void HandlePlayerTurn(string attackType, Program.BattleAction[] actions)
             {
@@ -225,6 +224,13 @@ namespace Amazonian_Mars
 
                 }
 
+            }
+            public static void InputErrorMessage()
+            {
+                Console.Clear();
+                Console.WriteLine("\n\n\n\t\tChoose a valid option!");
+                Console.ReadLine();
+                Console.Clear();
             }
 
             //if healing move, targetName will be the same as attackerName
